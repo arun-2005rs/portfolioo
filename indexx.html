@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arun's | Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name, Web Developer specializing in front-end development and UI/UX design.">
+  <meta property="og:title" content="Arun's | Portfolio">
+  <meta property="og:description" content="Web Developer | UI/UX Enthusiast | Problem Solver">
+  <meta property="og:image" content="path-to-image.jpg">
+  <meta property="og:url" content="https://www.yourportfolio.com">
+  <style>
+    /* Styles here */
+
+    h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--accent-dark);
+}
+.resume-btn, .contact-form button {
+  position: relative;
+  overflow: hidden;
+}
+.contact-details {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact-details h3 {
+  margin-top: 20px;
+  color: var(--accent-dark);
+}
+
+.contact-details p a {
+  color: var(--text);
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.contact-details p a:hover {
+  color: var(--accent);
+}
+
+
+.resume-btn::after, .contact-form button::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.4);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: transform 0.5s ease-out;
+}
+
+.resume-btn:active::after, .contact-form button:active::after {
+  transform: translate(-50%, -50%) scale(3);
+  transition: 0s;
+}
+
+
+h3 {
+  margin-bottom: 15px;
+}
+
+p {
+  margin: 20px 0;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+  
+    :root {
+      --main-bg: #f4f6f7;
+      --content-bg: #ffffff;
+      --accent: #3498db;
+      --accent-dark: #2980b9;
+      --text: #2c3e50;
+      --text-muted: #7f8c8d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--main-bg);
+      color: var(--text);
+    }
+
+    h1, h2, h3 {
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    header {
+      background: var(--content-bg);
+      text-align: center;
+      padding: 60px 20px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease;
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-dark);
+    }
+
+    section {
+      background: var(--content-bg);
+      margin: 30px 0;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 20px auto;
+      color: var(--text-muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .contact-form button,
+    .resume-btn {
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .contact-form button:hover,
+    .resume-btn:hover {
+      background-color: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background: #fff;
+      text-align: center;
+      padding: 20px;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--accent);
+  font-size: 1.2rem;
+  width: 0;
+  animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+nav a {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-dark);
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<html lang="en" style="scroll-behavior: smooth;">
+
+<header>
+  <h1>ARUN RAMESH</h1>
+  <p><p>Java Fullstack Developer crafting scalable apps & beautiful UI experiences</p>
+</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+  <!-- About -->
+   
+<section id="about" class="container">
+    <h2>About Me</h2>
+    
+  
+    <div class="grid" style="text-align: left;">
+  
+      <div class="card">
+        <h3>🎓 Education</h3>
+        <p>Bachelor’s Degree in Computer Science engineering<br/>jansons institute of technology 2022-2026
+      </div>
+  
+      <div class="card">
+        <h3>💼 Experience</h3>
+        <p>Java Fullstack Developer with       of experience in web development, UI/UX design, and building scalable applications.</p>
+      </div>
+  
+      <div class="card">
+        <h3>🛠️ Technologies</h3>
+        <p>HTML, CSS, JavaScript, React, Node.js, Java, Spring Boot, MySQL, Git,Flutter</p>
+      </div>
+  
+      <div class="card">
+        <h3>🌱 Interests</h3>
+        <p>UI/UX Design, Open Source, Problem Solving, Tech Blogging, Photography</p>
+      </div>
+    </div>
+  </section>
+  
+  <p>
+    I am a creative and detail-oriented web developer with experience in front-end development and building responsive, elegant websites. I enjoy coding, design, and turning ideas into visually appealing experiences.
+  </p>
+</section>
+
+<!-- Facts -->
+<section id="facts" class="container">
+    <h2>Quick Facts</h2>
+    <div class="grid" style="text-align: left;">
+      
+      <div class="card" style="background: #e3f2fd;">
+        <h3>📁 Projects Completed</h3>
+        <p>20+ personal and professional web development projects, including fullstack apps, portfolios, and UI components.</p>
+      </div>
+  
+      <div class="card" style="background: #e8f5e9;">
+        <h3>🎓 Internships</h3>
+        <p>2 internships in web development roles focusing on front-end technologies and RESTful API integration.</p>
+      </div>
+  
+      <div class="card" style="background: #fff3e0;">
+        <h3>📜 Certifications</h3>
+        <p>Certified in Java Fullstack Development and Responsive Web Design (freeCodeCamp, Coursera).</p>
+      </div>
+  
+      
+      <div class="card" style="background: #f3e5f5;">
+        <h3>🌍 Availability</h3>
+        <p>Open for freelance projects, remote roles, and full-time opportunities.</p>
+      </div>
+  
+  </section>
+  <section id="services" class="container">
+    <h2>What I Offer</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>⚙️ Fullstack Web Apps</h3>
+        <p>Complete web solutions using Java, Spring Boot, React & MySQL.</p>
+      </div>
+      <div class="card">
+        <h3>🎨 UI/UX Design</h3>
+        <p>User-first interfaces with responsive and intuitive layouts.</p>
+      </div>
+      <div class="card">
+        <h3>🚀 Performance Optimization</h3>
+        <p>Fast-loading, SEO-optimized websites that scale with users.</p>
+      </div>
+    </div>
+  </section>
+
+  
+  
+<!-- Skills -->
+<section id="skills" class="container">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="card">
+      <i class="fas fa-code"></i>
+      <h3>HTML & CSS</h3>
+      <p>Building semantic, accessible layouts with modern CSS.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-laptop-code"></i>
+      <h3>JavaScript</h3>
+      <p>Creating interactive UIs and handling logic with JS.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-mobile-alt"></i>
+      <h3>Responsive Design</h3>
+      <p>Mobile-first design using Flexbox & Grid.</p>
+    </div>
+  </div>
+  <section id="skills" class="container">
+    <h2></h2>
+    <div class="grid">
+  
+      <div class="card">
+        <i class="fas fa-cogs"></i>
+        <h3>Spring Boot</h3>
+        <p>Developing RESTful APIs and microservices with Spring Boot for scalable and secure backend services.</p>
+      </div>
+  
+      <div class="card">
+        <i class="fas fa-code"></i>
+        <h3>Core Java</h3>
+        <p>Strong understanding of OOP, data structures, exception handling, and Java 8+ features like Streams and Lambda.</p>
+      </div>
+  
+      <div class="card">
+        <i class="fas fa-database"></i>
+        <h3>MySQL & JPA</h3>
+        <p>Efficiently managing relational data using MySQL and JPA/Hibernate for ORM-based persistence layers.</p>
+      </div>
+  
+    </div>
+  </section>
+  
+  </section>
+  
+</section>
+
+<!-- Projects -->
+<section id="projects" class="container">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="project1.jpg" alt="Portfolio Website">
+      <h3>Portfolio Website</h3>
+      <p>A responsive portfolio built with HTML, CSS, and JS.</p>
+    </div>
+    <div class="card">
+      <img src="project2.jpg" alt="Weather App">
+      <h3>Weather App</h3>
+      <p>Real-time weather with API integration and clean UI.</p>
+    </div>
+    <div class="card">
+      <img src="project3.jpg" alt="To-Do List">
+      <h3>To-Do List</h3>
+      <p>Interactive task manager using Local Storage & JS.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Resume -->
+<section id="resume" class="container">
+  <h2>Resume</h2>
+  
+  <p>Click the button below to download my resume and learn more about my technical background and experience.</p>
+  <a href="file:///C:/Users/hai/Downloads/ls__91024___Copy___Copy_%20(2).pdf" download class="resume-btn">📄 Download Resume</a>
+</section>
+
+<!-- Contact -->
+
+<section id="contact" class="container">
+    <h2>Contact Me</h2>
+  
+    <div class="contact-details">
+      <h3>📧 Email</h3>
+      <p><a href="mailto:yourname@example.com">officialarunrs@gmail.com</a></p>
+  
+      <h3>📱 Phone</h3>
+      <p><a href="tel:+919876543210">+91 77085 17270 </a></p>
+    </div>
+  
+    <form class="contact-form" action="officialarunrs@gmail.com" method="post">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  
+<!-- Map Section -->
+<section id="map" class="container">
+  <h2>Find Me</h2>
+  <p>You can reach out to me remotely or meet around my location below.</p>
+  <div style="width: 100%; height: 400px; margin-top: 20px;">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1957.6503776358475!2d77.35933480649663!3d11.090947897258015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba907ec1b1e4df5%3A0xb8370d9668cf9af7!2sKarunai%20Ammal%20Layout%2C%20Perichipalayam%2C%20Tiruppur%2C%20Tamil%20Nadu%20641605!5e0!3m2!1sen!2sin!4v1744385766902!5m2!1sen!2sin" 
+      width="100%" 
+      height="100%" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+  
+  <p>&copy; 2025 Arun</p>
+  <div>
+    <a href="https://www.linkedin.com/in/arun-ramesh-/" target="_blank">LinkedIn</a> |
+    <a href="https://github.com/arun-7708517270" target="_blank">GitHub</a> |
+    <a href="https://www.instagram.com/__arunx__1/" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+<!-- Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
